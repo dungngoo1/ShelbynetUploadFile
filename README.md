@@ -15,6 +15,10 @@ React MVP for uploading files to Shelby testnet, viewing blob metadata, and veri
 
 - [PRD.md](/d:/ShelbynetUploadFile/PRD.md)
 - [ARCHITECTURE.md](/d:/ShelbynetUploadFile/docs/ARCHITECTURE.md)
+- [FLOWS.md](/d:/ShelbynetUploadFile/docs/FLOWS.md)
+- [QUALITY.md](/d:/ShelbynetUploadFile/docs/QUALITY.md)
+- [ROADMAP.md](/d:/ShelbynetUploadFile/docs/ROADMAP.md)
+- [WORKFLOW.md](/d:/ShelbynetUploadFile/docs/WORKFLOW.md)
 
 ## Environment
 

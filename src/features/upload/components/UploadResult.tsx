@@ -32,16 +32,16 @@ export function UploadResult({
 
   return (
     <Card
-      title="Latest upload"
-      description="The app re-checks metadata after upload so the result panel reflects the currently indexed Shelby object."
+      title="Latest proof snapshot"
+      description="The app re-checks metadata after upload so this panel reflects the current queryable Shelby object."
     >
       {isLoading ? <p>Loading metadata...</p> : null}
       {error ? <p>Metadata lookup failed: {error.message}</p> : null}
       <KeyValueList
         items={[
-          { label: "Owner", value: account },
-          { label: "Blob name", value: resolvedName },
-          { label: "Selected file size", value: formatBytes(fileSize) },
+          { label: "Owner", value: account, copyValue: account },
+          { label: "Blob name", value: resolvedName, copyValue: resolvedName },
+          { label: "Selected file size", value: formatBytes(fileSize), copyValue: String(fileSize) },
           {
             label: "Expiration",
             value: new Date(expirationMicros / 1000).toLocaleString(),
@@ -54,11 +54,13 @@ export function UploadResult({
             label: "Direct object URL",
             value: blobUrl,
             href: blobUrl,
+            copyValue: blobUrl,
           },
           {
             label: "Explorer",
             value: explorerUrl,
             href: explorerUrl,
+            copyValue: explorerUrl,
           },
         ]}
       />

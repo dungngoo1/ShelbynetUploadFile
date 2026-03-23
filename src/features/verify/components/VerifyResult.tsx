@@ -21,7 +21,7 @@ export function VerifyResult({ account, blobName }: VerifyResultProps) {
 
   if (isLoading) {
     return (
-      <Card title="Verification result" description="Querying Shelby metadata for the requested object.">
+      <Card title="Verification output" description="Querying Shelby metadata for the requested object.">
         <p>Loading metadata...</p>
       </Card>
     );
@@ -29,7 +29,7 @@ export function VerifyResult({ account, blobName }: VerifyResultProps) {
 
   if (error) {
     return (
-      <Card title="Verification result" description="The metadata query returned an error.">
+      <Card title="Verification output" description="The metadata query returned an error.">
         <p className="status-error">{error.message}</p>
       </Card>
     );
@@ -37,7 +37,7 @@ export function VerifyResult({ account, blobName }: VerifyResultProps) {
 
   if (!data) {
     return (
-      <Card title="Verification result" description="No metadata was returned for the submitted account and blob name.">
+      <Card title="Verification output" description="No metadata was returned for the submitted account and blob name.">
         <p>Blob not found.</p>
       </Card>
     );
@@ -48,12 +48,12 @@ export function VerifyResult({ account, blobName }: VerifyResultProps) {
   const explorerUrl = buildExplorerUrl(account, resolvedName);
 
   return (
-    <Card title="Verification result" description="This view confirms the object can be resolved through Shelby metadata lookup.">
+    <Card title="Verification output" description="This panel confirms the object can be resolved through Shelby metadata lookup.">
       <KeyValueList
         items={[
-          { label: "Name", value: resolvedName },
-          { label: "Owner", value: account },
-          { label: "Size", value: formatBytes(data.size) },
+          { label: "Name", value: resolvedName, copyValue: resolvedName },
+          { label: "Owner", value: account, copyValue: account },
+          { label: "Size", value: formatBytes(data.size), copyValue: String(data.size) },
           {
             label: "Created",
             value: new Date(data.creationMicros / 1000).toLocaleString(),
@@ -66,11 +66,13 @@ export function VerifyResult({ account, blobName }: VerifyResultProps) {
             label: "Direct object URL",
             value: blobUrl,
             href: blobUrl,
+            copyValue: blobUrl,
           },
           {
             label: "Explorer",
             value: explorerUrl,
             href: explorerUrl,
+            copyValue: explorerUrl,
           },
         ]}
       />
